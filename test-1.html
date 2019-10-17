@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>tree</title>
+	<style type="text/css">
+		textarea{
+			border: 1px solid lightblue;
+			width: 400px;
+			height: 100px;
+		}
+	</style>
+</head>
+<body>
+	<textarea id="msg"></textarea><br>
+	<button type="submit" onclick="getmsg()">确认</button>
+	<h1 id="test"></h1><br>
+	<h2 id="test2"></h2>
+	<h3 id="test3"></h3>
+	<script type="text/javascript">
+		document.body.onload=getmsg;
+		function getmsg() {
+			var text = document.getElementById('msg').value;;
+			var text2 = text.split("\n");
+			document.getElementById("test").innerHTML = text2;
+			var text3 =text2[1].split(/[：:、]/);
+			document.getElementById("test2").innerHTML = text3;
+			var h4 = document.createElement("h4");
+			var content = document.createTextNode(text3[2]);
+			h4.appendChild(content);
+			var current=document.getElementById("");
+			document.body.insertBefore(h4,current);
+
+		}
+		/*导师：Nine Percent
+		  17级：蔡徐坤、陈立农、范丞丞
+		  18级：黄明昊、林彦俊、朱正廷
+		  19级：王子异、王琳凯、尤长靖*/
+	</script>
+</body>
+</html>
+
