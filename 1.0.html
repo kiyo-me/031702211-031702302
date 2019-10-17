@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<title>tree</title>
+	<style type="text/css">
+		textarea{
+			border: 1px solid lightblue;
+			width: 400px;
+			height: 100px;
+		}
+	</style>
+</head>
+<body>
+	<textarea id="msg"></textarea><br>
+	<button type="submit" onclick="getmsg()">确认</button>
+	<p id="test"></p>
+<script type="text/javascript">
+	function getmsg() {
+	var text = document.getElementById('msg').value;
+	var text1 = text.split("\n");
+	var len=text1.length;
+	var arr=[];
+	var k=0;
+	var c1=[];
+	var c2=[];
+	var s1=[];
+	var s2=[];
+	var s3=[];
+	var s=[];
+	for(var i=1;i<len;i++)
+	{
+		var b=text1[i].split(/[:：级、]/);
+		c1[i]=[];
+		
+		for(var j=2;j<b.length;j++)		//把学生搞成数组
+		{
+			c1[i].push(b[j]);
+			//console.log(c1[i]);
+		}
+		
+		c2[i]={tree_child:c1[i],name:b[0]+"级"};	//学生+年级
+		if(b[1]=="本科生")				//学生+年级丢进学历里
+			s1.push(c2[i]);
+		else if(b[1]=="硕士生")
+			s2.push(c2[i]);
+		else
+			s3.push(c2[i]);
+	}
+	if(s1.length>0)
+	{
+		s[k]={tree_child:s1,name:"本科生"};
+		k++;
+	}	
+	if(s2.length>0)
+	{
+		s[k]={tree_child:s2,name:"硕士生"};
+		k++;
+	}	
+	if(s3.length>0)
+	{
+		s[k]={tree_child:s3,name:"博士生"};
+		k++;
+	}	
+	//document.getElementById("test").innerHTML =b[1];
+	
+	arr[0]={tree_child:s,name:text1[0]};
+	console.log(arr);
+	//document.getElementById("test").innerHTML = arr;
+}
+	</script>
+	</body>
+	
+</html>
+	
