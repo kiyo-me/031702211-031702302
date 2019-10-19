@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>tree</title>
+    <link rel="stylesheet" href="source/metroStyle.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript" src="source/jquery.ztree.all.js"></script>
+    <script type="text/javascript" src="source/jquery.ztree.core.js"></script>
+    <script type="text/javascript" src="tree.js"></script>
+    
+    <style type="text/css">
+		body{
+			background-image: url("source/bgi.jpg");
+			background-position: center;
+			background-attachment: fixed;
+			background-repeat: no-repeat;
+		}
+		.center{
+			margin: 50px auto;
+			width: 400px;
+		}
+		.content{
+			background-color: rgba(255,255,255,.5);
+			border:1px lightpink dashed;
+			border-radius: 50px;
+			width: 300px;
+			height: 100px;
+			//text-align: center;
+			font-size: 12px;
+			margin-bottom: 25px;
+			text-shadow: 1px 1px 1px gray;
+			//padding: 5px;
+			padding-left: 115px;
+			padding-bottom:5px;
+			padding-top:5px;
+		}
+		textarea{
+			border:1px lightblue solid;
+			background-color: rgba(255,255,255,.65);
+			width: 380px;
+			height: 100px;
+			padding: 15px;
+		}
+		button{
+			border-color: lightblue;
+			border-radius: 10px;
+			background-color: rgba(255,255,255,.1);
+			border-style: outset;
+			margin-top: 5px;
+			margin-left: 350px;
+			transition-timing-function: ease-in-out;
+			text-shadow: 1px 1px 1px lightcyan;
+			outline: none;
+		}
+		button:hover{
+			color: blue;
+			border-style: inset;
+			background-color: rgba(255,255,255,.3);
+		}
+		button:active{
+			color: black;
+			border-style: outset;
+			background-color: rgba(255,255,255,.1);
+		}
+		.hint
+		{
+			background-color: rgba(255,255,255,.5);
+			//border:2px #ccffcc dotted;
+			border-radius: 25px;
+			width: 300px;
+			text-align: center;
+			font-size: 15px;
+			margin:25px;
+			padding: 25px;
+			text-shadow: 1px 1px 1px #ffffcc;
+			visibility: hidden;
+		}	
+	</style>
+</head>
+<body>
+    <div class="center">
+		<div class="content">
+			<strong>&emsp;&emsp;&emsp;&emsp;输入格式</strong>如下：<br>
+			导师：张三<br>
+			2016级博士生：天一、王二、吴五<br>
+			2015级硕士生：李四、王五、许六<br>
+			2016级硕士生：刘一、李二、李三<br>
+			2017级本科生：刘六、琪七、司四</div>
+		<textarea id="msg"></textarea><br>
+		<button id="butt">确认</button>
+		<div class="hint">
+        <ul id="regionZTree" class="ztree"></ul>
+    	</div>
+	</div>
+   
+    <script>
+        $(document).ready(function() {
+            $("#butt").click(function() 
+            {
+            	msg1();
+            	zTreeObj=$.fn.zTree.init($("#regionZTree"),setting,arr);
+            	zTreeObj.expandAll(true);		
+            })
+            $('#butt').click(function(){
+            	$(".hint").css("visibility","visible");
+            })
+
+        })
+
+    </script>
+</body>
+</html>
